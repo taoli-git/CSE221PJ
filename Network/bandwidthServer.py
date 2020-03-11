@@ -19,7 +19,7 @@ tcpSerSock.bind(addr)
 tcpSerSock.setblocking(1)
 tcpSerSock.listen(1)
 
-size =  2 * 1024 * 1024
+size =  1 * 1024 * 1024
 file = ranstr(size)
 msg = file.encode('utf-8')
 

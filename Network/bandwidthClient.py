@@ -7,7 +7,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 s.connect(address)
 maxspeed = 0
-size =  2 * 1024 * 1024
+size =  1 * 1024 * 1024
 
 for i in range(100):
     s.send('handshake'.encode('utf-8'))
