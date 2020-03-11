@@ -1,6 +1,13 @@
-import sys
-import time
+import random
+import string
 import socket
+
+def ranstr(num):
+    H = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    salt = ''
+    for i in range(num):
+        salt += random.choice(H)
+    return salt
 
 host = '127.0.0.1'
 port = 33334
@@ -12,8 +19,8 @@ tcpSerSock.bind(addr)
 tcpSerSock.setblocking(1)
 tcpSerSock.listen(1)
 
-fileSize =  2 * 1024 * 1024
-file = '1' * fileSize
+size =  2 * 1024 * 1024
+file = ranstr(size)
 msg = file.encode('utf-8')
 
 print("Waiting connect...")

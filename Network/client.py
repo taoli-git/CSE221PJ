@@ -11,12 +11,12 @@ s.connect(address)
 totaltime = 0
 str = '1234abcd' * 4
 msg = str.encode('utf-8')
-for i in range(1):
+for i in range(1000):
     totaltime = 0
     start = time.time()
     s.send(msg)
     data = s.recv(32)
     end = time.time()
     totaltime += end - start
-    print(totaltime*1000)
+print(totaltime*1000)
 s.close()

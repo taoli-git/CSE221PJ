@@ -11,16 +11,12 @@ tcpSerSock.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 tcpSerSock.bind(addr)
 tcpSerSock.setblocking(1)
 tcpSerSock.listen(1)
-
-
 while 1:
     print("Waiting connect...")
     tcpCliSock, addr = tcpSerSock.accept()
     print('...connected from', addr)
-
     while 1:
-        recvdata = tcpCliSock.recv(64)
+        recvdata = tcpCliSock.recv(32)
         if not recvdata: break
         tcpCliSock.sendall(recvdata)
-
     tcpCliSock.close()
